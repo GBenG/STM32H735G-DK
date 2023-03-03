@@ -26,6 +26,21 @@
             "FileNameBackground": "__generated\\alternate_theme_images_widgets_circleprogress_backgrounds_large.png",
             "ProgressRangeMax": 100,
             "ProgressInitialValue": 100
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 126,
+            "Y": 206,
+            "Width": 39,
+            "Height": 25,
+            "TextId": "__SingleUse_RB3C",
+            "TextRotation": "0",
+            "Color": {
+              "Green": 240,
+              "Blue": 255
+            },
+            "AutoSize": true
           }
         ],
         "Interactions": []

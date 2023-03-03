@@ -10,6 +10,7 @@
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/containers/progress_indicators/CircleProgress.hpp>
 #include <touchgfx/widgets/canvas/PainterRGB888.hpp>
+#include <touchgfx/widgets/TextArea.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -29,6 +30,7 @@ protected:
     touchgfx::Box __background;
     touchgfx::CircleProgress circleProgress1;
     touchgfx::PainterRGB888 circleProgress1Painter;
+    touchgfx::TextArea textArea1;
 
 private:
 

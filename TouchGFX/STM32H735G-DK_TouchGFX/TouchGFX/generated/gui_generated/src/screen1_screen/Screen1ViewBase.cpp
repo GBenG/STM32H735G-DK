@@ -5,6 +5,7 @@
 #include <touchgfx/canvas_widget_renderer/CanvasWidgetRenderer.hpp>
 #include <touchgfx/Color.hpp>
 #include <images/BitmapDatabase.hpp>
+#include <texts/TextKeysAndLanguages.hpp>
 
 Screen1ViewBase::Screen1ViewBase()
 {
@@ -27,6 +28,12 @@ Screen1ViewBase::Screen1ViewBase()
     circleProgress1.setPainter(circleProgress1Painter);
     circleProgress1.setValue(100);
     add(circleProgress1);
+
+    textArea1.setXY(126, 206);
+    textArea1.setColor(touchgfx::Color::getColorFromRGB(0, 240, 255));
+    textArea1.setLinespacing(0);
+    textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_RB3C));
+    add(textArea1);
 }
 
 Screen1ViewBase::~Screen1ViewBase()
