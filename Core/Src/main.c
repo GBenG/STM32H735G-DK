@@ -208,7 +208,7 @@ int main(void)
   MX_OCTOSPI1_Init();
   MX_OCTOSPI2_Init();
   MX_SAI1_Init();
-  MX_SDMMC1_SD_Init();
+  //MX_SDMMC1_SD_Init();
   MX_TIM1_Init();
   MX_TIM4_Init();
   MX_TIM5_Init();
@@ -1600,14 +1600,14 @@ void Startl_ledTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	HAL_GPIO_WritePin(GPIOC, USER_LED1_Pin, GPIO_PIN_SET);
-	osDelay(100);
 	HAL_GPIO_WritePin(GPIOC, USER_LED1_Pin, GPIO_PIN_RESET);
-	osDelay(100);
-	HAL_GPIO_WritePin(GPIOC, USER_LED2_Pin, GPIO_PIN_SET);
-	osDelay(100);
+	osDelay(500);
+	HAL_GPIO_WritePin(GPIOC, USER_LED1_Pin, GPIO_PIN_SET);
+	osDelay(500);
 	HAL_GPIO_WritePin(GPIOC, USER_LED2_Pin, GPIO_PIN_RESET);
-    osDelay(100);
+	osDelay(500);
+	HAL_GPIO_WritePin(GPIOC, USER_LED2_Pin, GPIO_PIN_SET);
+    osDelay(500);
   }
   /* USER CODE END Startl_ledTask */
 }
