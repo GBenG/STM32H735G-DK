@@ -25,6 +25,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include "uart.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -1641,10 +1643,12 @@ void Startl_ledTask(void *argument)
 void StartUartTask(void *argument)
 {
   /* USER CODE BEGIN StartUartTask */
+	UART_Init(&huart3);
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+  	UART_Periodic();
+    osDelay(1000);
   }
   /* USER CODE END StartUartTask */
 }
