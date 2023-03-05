@@ -93,7 +93,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	        		local.rx.buffer[local.rx.index] = '\0';
 
 	            // Echo the received string back to the sender
-	            HAL_UART_Transmit(local.huart, (uint8_t*) local.rx.buffer, strlen(local.rx.buffer), HAL_MAX_DELAY);
+	            printf(">echo:\"%s\"\r\n",local.rx.buffer);
 
 	            // Reset the buffer index
 	            local.rx.index = 0;
