@@ -10,13 +10,29 @@
 #include <stdio.h>
 #include "FreeRTOS.h"
 #include "task.h"
+#include <string.h>
+
+//Config
+#define UART_BUFFER_SIZE (64)
+
+
+//Struct proto
+struct urt_dt{
+	char 								buffer[UART_BUFFER_SIZE];
+	uint16_t 						index;
+};
 
 
 //Local data
 static struct{
 	UART_HandleTypeDef *huart;
-	TickType_t curr_time;		// System time
+	TickType_t 					curr_time;		// System time
+	struct urt_dt				tx;						// Uart TX buffer
+	struct urt_dt				rx;						// Uart RX buffer
 }local;
+
+
+
 
 
 /**
@@ -43,6 +59,8 @@ PUTCHAR_PROTOTYPE
 **/
 void UART_Init( UART_HandleTypeDef *_huart ){
 	local.huart = _huart;
+	// Start the first receive
+	HAL_UART_Receive_IT(local.huart, (uint8_t*) &local.rx.buffer[local.rx.index], 1);
 }
 
 
@@ -65,10 +83,38 @@ void UART_Periodic( void )
   * @brief      Receive hadler
   **************************************************************************************************
 **/
-void UART_RxHandler( void ){
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	if (huart == local.huart)
+	    {
+	        if (local.rx.buffer[local.rx.index] == '\n')
+	        {
+	            // Null-terminate the string
+	        		local.rx.buffer[local.rx.index] = '\0';
 
+	            // Echo the received string back to the sender
+	            HAL_UART_Transmit(local.huart, (uint8_t*) local.rx.buffer, strlen(local.rx.buffer), HAL_MAX_DELAY);
+
+	            // Reset the buffer index
+	            local.rx.index = 0;
+	        }
+	        else
+	        {
+	            // Add the received character to the buffer
+	        		local.rx.buffer[local.rx.index++] = (char) huart->Instance->RDR;
+
+	            // Check for buffer overflow
+	            if (local.rx.index >= UART_BUFFER_SIZE)
+	            {
+	                // Reset the buffer index
+	            		local.rx.index = 0;
+	            }
+	        }
+
+	        // Start a new receive
+	        HAL_UART_Receive_IT(local.huart, (uint8_t*) &local.rx.buffer[local.rx.index], 1);
+	    }
 }
-
 
 
 

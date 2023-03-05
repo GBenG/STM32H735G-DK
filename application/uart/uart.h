@@ -16,6 +16,6 @@
 //API
 void UART_Init( UART_HandleTypeDef *_huart );
 void UART_Periodic( void );
-void UART_RxHandler( void );
+
 
 #endif /* UART_UART_H_ */
