@@ -105,10 +105,22 @@ const osThreadAttr_t ledTask_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for uartTask */
+osThreadId_t uartTaskHandle;
+const osThreadAttr_t uartTask_attributes = {
+  .name = "uartTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* Definitions for ledQueue */
 osMessageQueueId_t ledQueueHandle;
 const osMessageQueueAttr_t ledQueue_attributes = {
   .name = "ledQueue"
+};
+/* Definitions for uartQueue */
+osMessageQueueId_t uartQueueHandle;
+const osMessageQueueAttr_t uartQueue_attributes = {
+  .name = "uartQueue"
 };
 /* Definitions for myTimerLed */
 osTimerId_t myTimerLedHandle;
@@ -154,6 +166,7 @@ static void MX_USART3_UART_Init(void);
 static void MX_USB_OTG_HS_USB_Init(void);
 void StartDefaultTask(void *argument);
 void Startl_ledTask(void *argument);
+void StartUartTask(void *argument);
 void CallbackTimerLed(void *argument);
 
 /* USER CODE BEGIN PFP */
@@ -208,7 +221,7 @@ int main(void)
   MX_OCTOSPI1_Init();
   MX_OCTOSPI2_Init();
   MX_SAI1_Init();
-  //MX_SDMMC1_SD_Init();
+  MX_SDMMC1_SD_Init();
   MX_TIM1_Init();
   MX_TIM4_Init();
   MX_TIM5_Init();
@@ -252,6 +265,9 @@ int main(void)
   /* creation of ledQueue */
   ledQueueHandle = osMessageQueueNew (16, sizeof(uint16_t), &ledQueue_attributes);
 
+  /* creation of uartQueue */
+  uartQueueHandle = osMessageQueueNew (64, sizeof(uint8_t), &uartQueue_attributes);
+
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
@@ -262,6 +278,9 @@ int main(void)
 
   /* creation of ledTask */
   ledTaskHandle = osThreadNew(Startl_ledTask, NULL, &ledTask_attributes);
+
+  /* creation of uartTask */
+  uartTaskHandle = osThreadNew(StartUartTask, NULL, &uartTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -1610,6 +1629,24 @@ void Startl_ledTask(void *argument)
     osDelay(500);
   }
   /* USER CODE END Startl_ledTask */
+}
+
+/* USER CODE BEGIN Header_StartUartTask */
+/**
+* @brief Function implementing the uartTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartUartTask */
+void StartUartTask(void *argument)
+{
+  /* USER CODE BEGIN StartUartTask */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END StartUartTask */
 }
 
 /* CallbackTimerLed function */
