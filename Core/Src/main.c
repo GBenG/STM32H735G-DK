@@ -25,6 +25,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include <stdio.h>
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -170,7 +172,17 @@ void StartUartTask(void *argument);
 void CallbackTimerLed(void *argument);
 
 /* USER CODE BEGIN PFP */
+#ifdef __GNUC__
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#else
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif
 
+PUTCHAR_PROTOTYPE
+{
+  HAL_UART_Transmit(&huart3, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+  return ch;
+}
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -1641,10 +1653,18 @@ void Startl_ledTask(void *argument)
 void StartUartTask(void *argument)
 {
   /* USER CODE BEGIN StartUartTask */
+	char *tx_data = "Hallo Welt\r\n";  			// String to transmit over UART
+	int tx_len = strlen(tx_data);      			// Length of string to transmit
+	TickType_t curr_time;
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+    curr_time =  xTaskGetTickCount();			// Get the current system time in ticks
+    curr_time *= portTICK_PERIOD_MS;;   	// Convert the tick count to milliseconds
+
+  	printf("@Willkommen@ :: %u\r\n",curr_time);
+  	HAL_UART_Transmit(&huart3, (uint8_t*)tx_data, tx_len, HAL_MAX_DELAY);  // Transmit data over UART
+    osDelay(1000);
   }
   /* USER CODE END StartUartTask */
 }
