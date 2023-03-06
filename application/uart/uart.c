@@ -8,9 +8,10 @@
 **/
 #include "uart.h"
 #include <stdio.h>
-#include "FreeRTOS.h"
-#include "task.h"
 #include <string.h>
+#include <stdlib.h>
+#include "task.h"
+
 
 //Config
 #define UART_BUFFER_SIZE (64)
@@ -26,6 +27,7 @@ struct urt_dt{
 //Local data
 static struct{
 	UART_HandleTypeDef *huart;
+	osMessageQueueId_t *queue;
 	TickType_t 					curr_time;		// System time
 	struct urt_dt				tx;						// Uart TX buffer
 	struct urt_dt				rx;						// Uart RX buffer
@@ -57,8 +59,10 @@ PUTCHAR_PROTOTYPE
   * @brief      Module periodic initialization function
   **************************************************************************************************
 **/
-void UART_Init( UART_HandleTypeDef *_huart ){
+void UART_Init( UART_HandleTypeDef *_huart, osMessageQueueId_t *_queue ){
 	local.huart = _huart;
+	local.queue = _queue;
+
 	// Start the first receive
 	HAL_UART_Receive_IT(local.huart, (uint8_t*) &local.rx.buffer[local.rx.index], 1);
 }
@@ -95,7 +99,25 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	            // Echo the received string back to the sender
 	            printf(">echo:\"%s\"\r\n",local.rx.buffer);
 
+	            // Get income string length
+	            uint32_t length = strlen(local.rx.buffer);
+	            printf(">length:\"%lu\"\r\n", length);
+
+	            // Put income string to heap
+	            uint32_t *income_data = malloc(sizeof(length+1));
+	            memcpy(income_data, local.rx.buffer, local.rx.index+1);
+
+	            // Put income string to queue
+	            osMessageQueuePut(local.queue, income_data, 0, 0);
+
+	            //--DBG--------------------------------------------------->
+	            for( uint8_t i = 0; i<local.rx.index; i++ ){
+	            	printf(">[%u][0x%2.X]\r\n", i,local.rx.buffer[i]);
+	            }
+	            //--DBG--------------------------------------------------->
+
 	            // Reset the buffer index
+	            memset(local.rx.buffer, 0x00, UART_BUFFER_SIZE);
 	            local.rx.index = 0;
 	        }
 	        else

@@ -11,10 +11,13 @@
 
 //Includes
 #include "stm32h7xx_hal.h"
+#include "FreeRTOS.h"
+#include "cmsis_os.h"
+#include "queue.h"
 
 
 //API
-void UART_Init( UART_HandleTypeDef *_huart );
+void UART_Init( UART_HandleTypeDef *_huart, osMessageQueueId_t *_queue );
 void UART_Periodic( void );
 
 

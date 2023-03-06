@@ -269,7 +269,7 @@ int main(void)
   ledQueueHandle = osMessageQueueNew (16, sizeof(uint16_t), &ledQueue_attributes);
 
   /* creation of uartQueue */
-  uartQueueHandle = osMessageQueueNew (64, sizeof(uint8_t), &uartQueue_attributes);
+  uartQueueHandle = osMessageQueueNew (64, sizeof(char*), &uartQueue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -1644,7 +1644,7 @@ void Startl_ledTask(void *argument)
 void StartUartTask(void *argument)
 {
   /* USER CODE BEGIN StartUartTask */
-	UART_Init(&huart3);
+	UART_Init(&huart3,&uartQueueHandle);
   /* Infinite loop */
   for(;;)
   {
