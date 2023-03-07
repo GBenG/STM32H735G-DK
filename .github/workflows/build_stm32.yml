@@ -1,0 +1,32 @@
+name: build STM32 project
+
+run-name: ${{ github.workflow }} — ${{ github.sha }}
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Build STM32CubeIde project
+        uses: xanderhendriks/action-build-stm32cubeide@v7.2
+        with:
+          project-path: "."
+          project-target: "STM32H735G-DK"
+        env:
+          ENV_VERSION_MAJOR: 1
+          ENV_VERSION_MINOR: 0
+          ENV_VERSION_BUGFIX: 0
+          
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: STM32_Firmware
+          path: STM32H735G-DK/Release/*.*
