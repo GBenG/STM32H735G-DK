@@ -110,6 +110,9 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	            // Put income string to queue
 	            osMessageQueuePut(local.queue, income_data, 0, 0);
 
+	            uint32_t qsize = osMessageQueueGetCount(local.queue);
+	            uint32_t qspce = osMessageQueueGetSpace(local.queue);
+	            printf(">qsize:%lu|qspce:%lu\r\n", qsize, qspce);
 	            //--DBG--------------------------------------------------->
 	            for( uint8_t i = 0; i<local.rx.index; i++ ){
 	            	printf(">[%u][0x%2.X]\r\n", i,local.rx.buffer[i]);

@@ -1644,7 +1644,7 @@ void Startl_ledTask(void *argument)
 void StartUartTask(void *argument)
 {
   /* USER CODE BEGIN StartUartTask */
-	UART_Init(&huart3,&uartQueueHandle);
+	UART_Init(&huart3,uartQueueHandle);
   /* Infinite loop */
   for(;;)
   {
