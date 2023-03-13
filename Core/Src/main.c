@@ -134,6 +134,11 @@ osSemaphoreId_t myLedBinarySemHandle;
 const osSemaphoreAttr_t myLedBinarySem_attributes = {
   .name = "myLedBinarySem"
 };
+/* Definitions for uartRxBinarySem */
+osSemaphoreId_t uartRxBinarySemHandle;
+const osSemaphoreAttr_t uartRxBinarySem_attributes = {
+  .name = "uartRxBinarySem"
+};
 /* Definitions for myLedCountingSem */
 osSemaphoreId_t myLedCountingSemHandle;
 const osSemaphoreAttr_t myLedCountingSem_attributes = {
@@ -248,6 +253,9 @@ int main(void)
   /* Create the semaphores(s) */
   /* creation of myLedBinarySem */
   myLedBinarySemHandle = osSemaphoreNew(1, 1, &myLedBinarySem_attributes);
+
+  /* creation of uartRxBinarySem */
+  uartRxBinarySemHandle = osSemaphoreNew(1, 1, &uartRxBinarySem_attributes);
 
   /* creation of myLedCountingSem */
   myLedCountingSemHandle = osSemaphoreNew(2, 2, &myLedCountingSem_attributes);
