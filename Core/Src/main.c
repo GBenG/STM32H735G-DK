@@ -26,6 +26,7 @@
 /* USER CODE BEGIN Includes */
 
 #include "uart.h"
+#include <stdio.h>
 
 /* USER CODE END Includes */
 
@@ -1609,10 +1610,15 @@ static void MX_GPIO_Init(void)
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
+	TickType_t curr_time;													// System time
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+  	curr_time =  xTaskGetTickCount();			// Get the current system time in ticks
+  	curr_time *= portTICK_PERIOD_MS;   	 // Convert the tick count to milliseconds
+
+    printf("@Willkommen@ :: %lu\r\n",curr_time);
+    osDelay(1000);
   }
   /* USER CODE END 5 */
 }

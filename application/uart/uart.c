@@ -28,7 +28,6 @@ struct urt_dt{
 static struct{
 	UART_HandleTypeDef *huart;
 	osMessageQueueId_t *queue;
-	TickType_t 					curr_time;		// System time
 	struct urt_dt				tx;						// Uart TX buffer
 	struct urt_dt				rx;						// Uart RX buffer
 }local;
@@ -75,10 +74,7 @@ void UART_Init( UART_HandleTypeDef *_huart, osMessageQueueId_t *_queue ){
 **/
 void UART_Periodic( void )
 {
-	local.curr_time =  xTaskGetTickCount();			// Get the current system time in ticks
-	local.curr_time *= portTICK_PERIOD_MS;;   	// Convert the tick count to milliseconds
-
-  printf("@Willkommen@ :: %lu\r\n",local.curr_time);
+	//
 }
 
 
