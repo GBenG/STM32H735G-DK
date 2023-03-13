@@ -17,7 +17,9 @@
 
 
 //API
-void UART_Init( UART_HandleTypeDef *_huart, osMessageQueueId_t *_queue );
+void UART_Init( UART_HandleTypeDef *_huart,
+								osMessageQueueId_t *_queue,
+								osSemaphoreId_t 	 *_semap );
 void UART_Periodic( void );
 
 

@@ -1669,7 +1669,7 @@ void Startl_ledTask(void *argument)
 void StartUartTask(void *argument)
 {
   /* USER CODE BEGIN StartUartTask */
-	UART_Init(&huart3,uartQueueHandle);
+	UART_Init(&huart3,uartQueueHandle,uartRxBinarySemHandle);
   /* Infinite loop */
   for(;;)
   {
@@ -1689,9 +1689,22 @@ void StartUartTask(void *argument)
 void StartReportTask(void *argument)
 {
   /* USER CODE BEGIN StartReportTask */
+
+	//Reset created semapore to waiting state
+	osSemaphoreAcquire(uartRxBinarySemHandle,osWaitForever);
+
   /* Infinite loop */
   for(;;)
   {
+  	printf("Report wait...\r\n");
+  	// Wait for the semaphore to be available
+  	if(osSemaphoreAcquire(uartRxBinarySemHandle,osWaitForever) == osOK)
+  	{
+  		printf("Report prepare...\r\n");
+  		char* msg_ptr = NULL;
+  		osMessageQueueGet(uartQueueHandle, &msg_ptr, NULL, 0);
+  		printf("Report:\"%s\"\r\n",msg_ptr);
+  	}
     osDelay(1);
   }
   /* USER CODE END StartReportTask */

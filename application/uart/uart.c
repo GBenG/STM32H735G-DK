@@ -30,11 +30,13 @@ struct urt_dt{
 static struct{
 	UART_HandleTypeDef *huart;
 	osMessageQueueId_t *queue;
+	osSemaphoreId_t 	 *semap;
 	struct urt_dt				tx;						// Uart TX buffer
 	struct urt_dt				rx;						// Uart RX buffer
 }local = {
 	.huart = NULL,
 	.queue = NULL,
+	.semap = NULL,
 	.tx.buffer = {0},
 	.tx.index = 0,
 	.tx.compleate = false,
@@ -69,9 +71,12 @@ PUTCHAR_PROTOTYPE
   * @brief      Module periodic initialization function
   **************************************************************************************************
 **/
-void UART_Init( UART_HandleTypeDef *_huart, osMessageQueueId_t *_queue ){
+void UART_Init( UART_HandleTypeDef *_huart,
+								osMessageQueueId_t *_queue,
+								osSemaphoreId_t 	 *_semap ){
 	local.huart = _huart;
 	local.queue = _queue;
+	local.semap = _semap;
 
 	// Start the first receive
 	HAL_UART_Receive_IT(local.huart, (uint8_t*) &local.rx.buffer[local.rx.index], 1);
@@ -98,7 +103,7 @@ void UART_Periodic( void )
 		memcpy(income_data, local.rx.buffer, local.rx.index+1);
 
 		// Put income string to queue
-		osMessageQueuePut(local.queue, income_data, 0, 0);
+		osMessageQueuePut(local.queue, &income_data, 0, 0);
 
 		uint32_t qsize = osMessageQueueGetCount(local.queue);
 		uint32_t qspce = osMessageQueueGetSpace(local.queue);
@@ -114,6 +119,7 @@ void UART_Periodic( void )
 		memset(local.rx.buffer, 0x00, UART_BUFFER_SIZE);
 		local.rx.index = 0;
 		local.rx.compleate = false;
+		osSemaphoreRelease(local.semap);
 	}
 }
 
