@@ -1663,7 +1663,7 @@ void StartUartTask(void *argument)
   for(;;)
   {
   	UART_Periodic();
-    osDelay(1000);
+    osDelay(1);
   }
   /* USER CODE END StartUartTask */
 }
