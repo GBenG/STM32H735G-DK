@@ -115,6 +115,13 @@ const osThreadAttr_t uartTask_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for reportTask */
+osThreadId_t reportTaskHandle;
+const osThreadAttr_t reportTask_attributes = {
+  .name = "reportTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* Definitions for ledQueue */
 osMessageQueueId_t ledQueueHandle;
 const osMessageQueueAttr_t ledQueue_attributes = {
@@ -175,6 +182,7 @@ static void MX_USB_OTG_HS_USB_Init(void);
 void StartDefaultTask(void *argument);
 void Startl_ledTask(void *argument);
 void StartUartTask(void *argument);
+void StartReportTask(void *argument);
 void CallbackTimerLed(void *argument);
 
 /* USER CODE BEGIN PFP */
@@ -293,6 +301,9 @@ int main(void)
 
   /* creation of uartTask */
   uartTaskHandle = osThreadNew(StartUartTask, NULL, &uartTask_attributes);
+
+  /* creation of reportTask */
+  reportTaskHandle = osThreadNew(StartReportTask, NULL, &reportTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -1666,6 +1677,24 @@ void StartUartTask(void *argument)
     osDelay(1);
   }
   /* USER CODE END StartUartTask */
+}
+
+/* USER CODE BEGIN Header_StartReportTask */
+/**
+* @brief Function implementing the reportTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartReportTask */
+void StartReportTask(void *argument)
+{
+  /* USER CODE BEGIN StartReportTask */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END StartReportTask */
 }
 
 /* CallbackTimerLed function */
