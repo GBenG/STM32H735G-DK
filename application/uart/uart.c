@@ -11,6 +11,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "task.h"
+#include <stdbool.h>
 
 
 //Config
@@ -21,6 +22,7 @@
 struct urt_dt{
 	char 								buffer[UART_BUFFER_SIZE];
 	uint16_t 						index;
+	bool 								compleate;
 };
 
 
@@ -28,10 +30,20 @@ struct urt_dt{
 static struct{
 	UART_HandleTypeDef *huart;
 	osMessageQueueId_t *queue;
-	TickType_t 					curr_time;		// System time
+	osSemaphoreId_t 	 *semap;
 	struct urt_dt				tx;						// Uart TX buffer
 	struct urt_dt				rx;						// Uart RX buffer
-}local;
+}local = {
+	.huart = NULL,
+	.queue = NULL,
+	.semap = NULL,
+	.tx.buffer = {0},
+	.tx.index = 0,
+	.tx.compleate = false,
+	.rx.buffer = {0},
+	.rx.index = 0,
+	.rx.compleate = false,
+};
 
 
 
@@ -59,9 +71,12 @@ PUTCHAR_PROTOTYPE
   * @brief      Module periodic initialization function
   **************************************************************************************************
 **/
-void UART_Init( UART_HandleTypeDef *_huart, osMessageQueueId_t *_queue ){
+void UART_Init( UART_HandleTypeDef *_huart,
+								osMessageQueueId_t *_queue,
+								osSemaphoreId_t 	 *_semap ){
 	local.huart = _huart;
 	local.queue = _queue;
+	local.semap = _semap;
 
 	// Start the first receive
 	HAL_UART_Receive_IT(local.huart, (uint8_t*) &local.rx.buffer[local.rx.index], 1);
@@ -75,10 +90,37 @@ void UART_Init( UART_HandleTypeDef *_huart, osMessageQueueId_t *_queue ){
 **/
 void UART_Periodic( void )
 {
-	local.curr_time =  xTaskGetTickCount();			// Get the current system time in ticks
-	local.curr_time *= portTICK_PERIOD_MS;;   	// Convert the tick count to milliseconds
+	if( local.rx.compleate == true ){
+		// Echo the received string back to the sender
+		printf(">echo:\"%s\"\r\n",local.rx.buffer);
 
-  printf("@Willkommen@ :: %lu\r\n",local.curr_time);
+		// Get income string length
+		uint32_t length = strlen(local.rx.buffer);
+		printf(">length:\"%lu\"\r\n", length);
+
+		// Put income string to heap
+		uint32_t *income_data = malloc(sizeof(length+1));
+		memcpy(income_data, local.rx.buffer, local.rx.index+1);
+
+		// Put income string to queue
+		osMessageQueuePut(local.queue, &income_data, 0, 0);
+
+		uint32_t qsize = osMessageQueueGetCount(local.queue);
+		uint32_t qspce = osMessageQueueGetSpace(local.queue);
+		printf(">qsize:%lu|qspce:%lu\r\n", qsize, qspce);
+
+		//--DBG--------------------------------------------------->
+		for( uint8_t i = 0; i<local.rx.index; i++ ){
+			printf(">[%u][0x%2.X]\r\n", i,local.rx.buffer[i]);
+		}
+		//--DBG--------------------------------------------------->
+
+		// Reset the buffer index
+		memset(local.rx.buffer, 0x00, UART_BUFFER_SIZE);
+		local.rx.index = 0;
+		local.rx.compleate = false;
+		osSemaphoreRelease(local.semap);
+	}
 }
 
 
@@ -89,36 +131,13 @@ void UART_Periodic( void )
 **/
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-	if (huart == local.huart)
+	if (huart == local.huart && local.rx.compleate == false)
 	    {
 	        if (local.rx.buffer[local.rx.index] == '\n')
 	        {
 	            // Null-terminate the string
 	        		local.rx.buffer[local.rx.index] = '\0';
-
-	            // Echo the received string back to the sender
-	            printf(">echo:\"%s\"\r\n",local.rx.buffer);
-
-	            // Get income string length
-	            uint32_t length = strlen(local.rx.buffer);
-	            printf(">length:\"%lu\"\r\n", length);
-
-	            // Put income string to heap
-	            uint32_t *income_data = malloc(sizeof(length+1));
-	            memcpy(income_data, local.rx.buffer, local.rx.index+1);
-
-	            // Put income string to queue
-	            osMessageQueuePut(local.queue, income_data, 0, 0);
-
-	            //--DBG--------------------------------------------------->
-	            for( uint8_t i = 0; i<local.rx.index; i++ ){
-	            	printf(">[%u][0x%2.X]\r\n", i,local.rx.buffer[i]);
-	            }
-	            //--DBG--------------------------------------------------->
-
-	            // Reset the buffer index
-	            memset(local.rx.buffer, 0x00, UART_BUFFER_SIZE);
-	            local.rx.index = 0;
+	        		local.rx.compleate = true;
 	        }
 	        else
 	        {
