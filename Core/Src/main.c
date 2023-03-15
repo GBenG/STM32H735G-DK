@@ -26,6 +26,7 @@
 /* USER CODE BEGIN Includes */
 
 #include "uart.h"
+#include <stdio.h>
 
 /* USER CODE END Includes */
 
@@ -114,6 +115,13 @@ const osThreadAttr_t uartTask_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for reportTask */
+osThreadId_t reportTaskHandle;
+const osThreadAttr_t reportTask_attributes = {
+  .name = "reportTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* Definitions for ledQueue */
 osMessageQueueId_t ledQueueHandle;
 const osMessageQueueAttr_t ledQueue_attributes = {
@@ -133,6 +141,11 @@ const osTimerAttr_t myTimerLed_attributes = {
 osSemaphoreId_t myLedBinarySemHandle;
 const osSemaphoreAttr_t myLedBinarySem_attributes = {
   .name = "myLedBinarySem"
+};
+/* Definitions for uartRxBinarySem */
+osSemaphoreId_t uartRxBinarySemHandle;
+const osSemaphoreAttr_t uartRxBinarySem_attributes = {
+  .name = "uartRxBinarySem"
 };
 /* Definitions for myLedCountingSem */
 osSemaphoreId_t myLedCountingSemHandle;
@@ -169,6 +182,7 @@ static void MX_USB_OTG_HS_USB_Init(void);
 void StartDefaultTask(void *argument);
 void Startl_ledTask(void *argument);
 void StartUartTask(void *argument);
+void StartReportTask(void *argument);
 void CallbackTimerLed(void *argument);
 
 /* USER CODE BEGIN PFP */
@@ -249,6 +263,9 @@ int main(void)
   /* creation of myLedBinarySem */
   myLedBinarySemHandle = osSemaphoreNew(1, 1, &myLedBinarySem_attributes);
 
+  /* creation of uartRxBinarySem */
+  uartRxBinarySemHandle = osSemaphoreNew(1, 1, &uartRxBinarySem_attributes);
+
   /* creation of myLedCountingSem */
   myLedCountingSemHandle = osSemaphoreNew(2, 2, &myLedCountingSem_attributes);
 
@@ -284,6 +301,9 @@ int main(void)
 
   /* creation of uartTask */
   uartTaskHandle = osThreadNew(StartUartTask, NULL, &uartTask_attributes);
+
+  /* creation of reportTask */
+  reportTaskHandle = osThreadNew(StartReportTask, NULL, &reportTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -1601,10 +1621,15 @@ static void MX_GPIO_Init(void)
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
+	TickType_t curr_time;													// System time
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+  	curr_time =  xTaskGetTickCount();			// Get the current system time in ticks
+  	curr_time *= portTICK_PERIOD_MS;   	 // Convert the tick count to milliseconds
+
+    printf("@Willkommen@ :: %lu\r\n",curr_time);
+    osDelay(1000);
   }
   /* USER CODE END 5 */
 }
@@ -1644,14 +1669,45 @@ void Startl_ledTask(void *argument)
 void StartUartTask(void *argument)
 {
   /* USER CODE BEGIN StartUartTask */
-	UART_Init(&huart3,&uartQueueHandle);
+	UART_Init(&huart3,uartQueueHandle,uartRxBinarySemHandle);
   /* Infinite loop */
   for(;;)
   {
   	UART_Periodic();
-    osDelay(1000);
+    osDelay(1);
   }
   /* USER CODE END StartUartTask */
+}
+
+/* USER CODE BEGIN Header_StartReportTask */
+/**
+* @brief Function implementing the reportTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartReportTask */
+void StartReportTask(void *argument)
+{
+  /* USER CODE BEGIN StartReportTask */
+
+	//Reset created semapore to waiting state
+	osSemaphoreAcquire(uartRxBinarySemHandle,osWaitForever);
+
+  /* Infinite loop */
+  for(;;)
+  {
+  	printf("Report wait...\r\n");
+  	// Wait for the semaphore to be available
+  	if(osSemaphoreAcquire(uartRxBinarySemHandle,osWaitForever) == osOK)
+  	{
+  		printf("Report prepare...\r\n");
+  		char* msg_ptr = NULL;
+  		osMessageQueueGet(uartQueueHandle, &msg_ptr, NULL, 0);
+  		printf("Report:\"%s\"\r\n",msg_ptr);
+  	}
+    osDelay(1);
+  }
+  /* USER CODE END StartReportTask */
 }
 
 /* CallbackTimerLed function */
