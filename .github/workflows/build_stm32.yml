@@ -3,6 +3,7 @@ name: build STM32 project
 run-name: ${{ github.workflow }} — ${{ github.sha }}
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "main" ]
   pull_request:
@@ -30,3 +31,9 @@ jobs:
         with:
           name: STM32_Firmware
           path: STM32H735G-DK/Release/*.*
+
+  manual_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Manual Step
+        run: echo "This is a manual job"
