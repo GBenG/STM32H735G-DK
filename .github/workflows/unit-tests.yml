@@ -1,0 +1,17 @@
+name: run unit-test
+
+run-name: ${{ github.workflow }} — ${{ github.sha }}
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Manual Step
+        run: echo "This is a manual job for futher unit-tests"
