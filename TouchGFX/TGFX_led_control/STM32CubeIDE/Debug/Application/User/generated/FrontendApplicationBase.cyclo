@@ -18,6 +18,6 @@ MVPApplication.hpp:43:7:virtual touchgfx::MVPApplication::~MVPApplication()	1
 FrontendApplicationBase.hpp:16:13:virtual FrontendApplicationBase::~FrontendApplicationBase()	1
 Transition.hpp:89:18:virtual void touchgfx::Transition::invalidate()	1
 MVPApplication.hpp:59:18:virtual void touchgfx::MVPApplication::handlePendingScreenTransition()	3
-FrontendApplicationBase.cpp:39:6:void FrontendApplicationBase::gotoScreen1ScreenNoTransitionImpl()	8
+FrontendApplicationBase.cpp:40:6:void FrontendApplicationBase::gotoScreen1ScreenNoTransitionImpl()	8
 FrontendApplicationBase.cpp:17:1:FrontendApplicationBase::FrontendApplicationBase(Model&, FrontendHeap&)	3
-FrontendApplicationBase.cpp:33:6:void FrontendApplicationBase::gotoScreen1ScreenNoTransition()	1
+FrontendApplicationBase.cpp:34:6:void FrontendApplicationBase::gotoScreen1ScreenNoTransition()	1

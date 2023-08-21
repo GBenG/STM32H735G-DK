@@ -16,18 +16,44 @@ Screen.hpp:115:18:virtual void touchgfx::Screen::tearDownScreen()	1
 Screen.hpp:144:18:virtual void touchgfx::Screen::handleTickEvent()	1
 Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	1
 Widget.hpp:45:18:virtual void touchgfx::Widget::getLastChild(int16_t, int16_t, touchgfx::Drawable**)	3
-Screen1ViewBase.hpp:24:18:virtual void Screen1ViewBase::ToggleLED()	1
+AbstractPainter.hpp:61:34:virtual touchgfx::HAL::RenderingMethod touchgfx::AbstractPainter::getRenderingMethod() const	1
+AbstractPainter.hpp:78:18:virtual bool touchgfx::AbstractPainter::setup(const touchgfx::Rect&) const	1
+AbstractPainter.hpp:90:18:virtual void touchgfx::AbstractPainter::tearDown() const	1
+AbstractPainterBitmap.hpp:53:13:touchgfx::AbstractPainterBitmap::~AbstractPainterBitmap()	1
+AbstractPainterBitmap.hpp:89:18:virtual void touchgfx::AbstractPainterBitmap::setTiled(bool)	1
+AbstractPainterBitmap.hpp:113:18:virtual void touchgfx::AbstractPainterBitmap::setOffset(int16_t, int16_t)	1
+TypedText.hpp:65:13:touchgfx::TypedText::~TypedText()	1
+TextArea.hpp:48:18:virtual void touchgfx::TextArea::setWidth(int16_t)	1
+TextArea.hpp:54:18:virtual void touchgfx::TextArea::setHeight(int16_t)	1
+TextArea.hpp:60:18:virtual touchgfx::Rect touchgfx::TextArea::getSolidRect() const	1
+TextArea.hpp:89:18:virtual void touchgfx::TextArea::setAlpha(uint8_t)	1
+TextArea.hpp:127:18:virtual void touchgfx::TextArea::setXBaselineY(int16_t, int16_t)	1
+TextArea.hpp:403:41:virtual const UnicodeChar* touchgfx::TextArea::getWildcard2() const	1
+TextAreaWithWildcard.hpp:84:41:virtual const UnicodeChar* touchgfx::TextAreaWithOneWildcard::getWildcard1() const	1
+Screen1ViewBase.hpp:28:18:virtual void Screen1ViewBase::ToggleLED()	1
+Screen1ViewBase.hpp:32:18:virtual void Screen1ViewBase::GuageUp()	1
+Screen1ViewBase.hpp:36:18:virtual void Screen1ViewBase::GuageDown()	1
 View.hpp:36:7:touchgfx::View<Screen1Presenter>::~View()	1
-Screen1ViewBase.cpp:25:1:Screen1ViewBase::~Screen1ViewBase()	1
-Screen1ViewBase.cpp:30:6:virtual void Screen1ViewBase::setupScreen()	1
+Screen1ViewBase.cpp:73:6:virtual void Screen1ViewBase::setupScreen()	1
 Callback.hpp:357:8:touchgfx::Callback<Screen1ViewBase, const touchgfx::AbstractButton&>::~Callback()	1
+TextAreaWithWildcard.hpp:62:7:touchgfx::TextAreaWithOneWildcard::~TextAreaWithOneWildcard()	1
 Callback.hpp:386:18:void touchgfx::Callback<dest_type, T1, void, void>::execute(T1) [with dest_type = Screen1ViewBase; T1 = const touchgfx::AbstractButton&]	2
 Callback.hpp:396:18:bool touchgfx::Callback<dest_type, T1, void, void>::isValid() const [with dest_type = Screen1ViewBase; T1 = const touchgfx::AbstractButton&]	3
+AbstractPainterBitmap.hpp:53:13:virtual touchgfx::AbstractPainterBitmap::~AbstractPainterBitmap()	1
+TypedText.hpp:65:13:virtual touchgfx::TypedText::~TypedText()	1
+TextAreaWithWildcard.hpp:62:7:virtual touchgfx::TextAreaWithOneWildcard::~TextAreaWithOneWildcard()	1
 Callback.hpp:357:8:virtual touchgfx::Callback<Screen1ViewBase, const touchgfx::AbstractButton&>::~Callback()	1
 View.hpp:36:7:virtual touchgfx::View<Screen1Presenter>::~View()	1
-Screen1ViewBase.cpp:25:1:virtual Screen1ViewBase::~Screen1ViewBase()	1
+AbstractPainterBitmap.hpp:62:18:virtual void touchgfx::AbstractPainterBitmap::setBitmap(const touchgfx::Bitmap&)	1
+Screen1ViewBase.cpp:68:1:Screen1ViewBase::~Screen1ViewBase()	1
+Screen1ViewBase.cpp:68:1:virtual Screen1ViewBase::~Screen1ViewBase()	1
 Drawable.hpp:121:18:virtual void touchgfx::Drawable::invalidateContent() const	2
-Screen1ViewBase.cpp:35:6:void Screen1ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton&)	2
+TextAreaWithWildcard.hpp:43:18:virtual void touchgfx::TextAreaWithWildcardBase::invalidateContent() const	1
+Screen1ViewBase.cpp:78:6:void Screen1ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton&)	4
+TextArea.hpp:111:18:virtual void touchgfx::TextArea::setBaselineY(int16_t)	1
+TextAreaWithWildcard.hpp:49:36:virtual touchgfx::TextArea::BoundingArea touchgfx::TextAreaWithWildcardBase::calculateBoundingArea() const	1
 Drawable.hpp:343:10:void touchgfx::Drawable::setXY(int16_t, int16_t)	1
+Drawable.hpp:233:10:void touchgfx::Drawable::setPosition(int16_t, int16_t, int16_t, int16_t)	1
 Widget.hpp:36:7:touchgfx::Widget::Widget()	1
-Screen1ViewBase.cpp:8:1:Screen1ViewBase::Screen1ViewBase()	1
+AbstractPainterRGB888.hpp:36:5:touchgfx::AbstractPainterRGB888::AbstractPainterRGB888()	4
+Screen1ViewBase.cpp:10:1:Screen1ViewBase::Screen1ViewBase()	1

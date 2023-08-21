@@ -10,6 +10,10 @@
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/widgets/ToggleButton.hpp>
+#include <touchgfx/widgets/Gauge.hpp>
+#include <touchgfx/widgets/canvas/PainterRGB888Bitmap.hpp>
+#include <touchgfx/widgets/ButtonWithIcon.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -25,6 +29,14 @@ public:
     {
         // Override and implement this function in Screen1
     }
+    virtual void GuageUp()
+    {
+        // Override and implement this function in Screen1
+    }
+    virtual void GuageDown()
+    {
+        // Override and implement this function in Screen1
+    }
 
 protected:
     FrontendApplication& application() {
@@ -37,8 +49,25 @@ protected:
     touchgfx::Box __background;
     touchgfx::Image image1;
     touchgfx::ToggleButton toggleButton;
+    touchgfx::Gauge gauge_test;
+    touchgfx::PainterRGB888Bitmap gauge_testPainter;
+    touchgfx::ButtonWithIcon buttonUp;
+    touchgfx::ButtonWithIcon buttonDown;
+    touchgfx::TextAreaWithOneWildcard GLabel;
+
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t GLABEL_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar GLabelBuffer[GLABEL_SIZE];
 
 private:
+
+    /*
+     * Canvas Buffer Size
+     */
+    static const uint32_t CANVAS_BUFFER_SIZE = 7200;
+    uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
 
     /*
      * Callback Declarations

@@ -3,6 +3,7 @@
     "Screens": [
       {
         "Name": "Screen1",
+        "CanvasBufferSize": 7200,
         "Components": [
           {
             "Type": "Image",
@@ -21,6 +22,97 @@
             "Pressed": "__generated\\alternate_theme_images_widgets_togglebutton_medium_rounded_text_off_normal.png",
             "Released": "__generated\\alternate_theme_images_widgets_togglebutton_medium_rounded_text_on_action.png",
             "Preset": "alternate_theme\\presets\\togglebutton\\medium\\rounded_action_text.json"
+          },
+          {
+            "Type": "Gauge",
+            "Name": "gauge_test",
+            "X": 339,
+            "Y": 76,
+            "Width": 120,
+            "Height": 120,
+            "Preset": "alternate_theme\\presets\\gauges\\tiny\\dark_filled.json",
+            "FileNameBackground": "__generated\\alternate_theme_images_widgets_gauge_tiny_backgrounds_dark_filled.png",
+            "RotationCenterX": 60.0,
+            "RotationCenterY": 60.0,
+            "StartAngle": -119.0,
+            "EndAngle": 122.0,
+            "RangeMax": 100.0,
+            "InitialValue": 50.0,
+            "UseAnimation": true,
+            "Easing": "Linear",
+            "EasingOption": "In",
+            "FileNameNeedle": "__generated\\alternate_theme_images_widgets_gauge_tiny_needles_rough.png",
+            "NeedleRotationCenterX": 5.0,
+            "NeedleRotationCenterY": 33.0,
+            "NeedleMovingRenderingAlgorithm": "Bilinear Interpolation",
+            "NeedleSteadyRenderingAlgorithm": "Bilinear Interpolation",
+            "UseArc": true,
+            "FileNameArc": "__generated\\alternate_theme_images_widgets_gauge_tiny_fillers_swoop.png",
+            "ArcColor": {
+              "Red": 20,
+              "Green": 151,
+              "Blue": 197
+            },
+            "SetArcPosition": true,
+            "ArcX": 12.0,
+            "ArcY": 12.0,
+            "ArcWidth": 95.0,
+            "ArcHeight": 71.0,
+            "ArcRadius": 50.0,
+            "ArcLineWidth": 49.0,
+            "ArcCapStyle": "Butt"
+          },
+          {
+            "Type": "ButtonWithIcon",
+            "Name": "buttonUp",
+            "X": 21,
+            "Y": 26,
+            "Width": 110,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_tiny_rounded_disabled.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_tiny_rounded_disabled.png",
+            "IconPressed": "__generated\\icon_theme_images_navigation_arrow_drop_up_50_50_000000.svg.png",
+            "IconReleased": "__generated\\icon_theme_images_navigation_arrow_drop_up_50_50_E8F6FB.svg.png",
+            "IconX": 30,
+            "IconHeight": 50,
+            "IconWidth": 50,
+            "Preset": "alternate_theme\\presets\\button\\regular\\height_50\\tiny_rounded_disabled.json"
+          },
+          {
+            "Type": "ButtonWithIcon",
+            "Name": "buttonDown",
+            "X": 21,
+            "Y": 196,
+            "Width": 110,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_tiny_rounded_disabled.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_tiny_rounded_disabled.png",
+            "IconPressed": "__generated\\icon_theme_images_navigation_arrow_drop_down_50_50_000000.svg.png",
+            "IconReleased": "__generated\\icon_theme_images_navigation_arrow_drop_down_50_50_E8F6FB.svg.png",
+            "IconX": 30,
+            "IconHeight": 50,
+            "IconWidth": 50,
+            "Preset": "alternate_theme\\presets\\button\\regular\\height_50\\tiny_rounded_disabled.json"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "GLabel",
+            "X": 339,
+            "Y": 197,
+            "Width": 120,
+            "Height": 49,
+            "TextId": "__SingleUse_YUC8",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_XH9D",
+              "UseBuffer": true,
+              "BufferSize": 5
+            }
           }
         ],
         "Interactions": [
@@ -33,6 +125,28 @@
             "Action": {
               "Type": "ActionCustom",
               "FunctionName": "ToggleLED"
+            }
+          },
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "buttonUp"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "GuageUp"
+            }
+          },
+          {
+            "InteractionName": "Interaction2",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "buttonDown"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "GuageDown"
             }
           }
         ]

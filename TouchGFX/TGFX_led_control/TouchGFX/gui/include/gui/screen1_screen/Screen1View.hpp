@@ -12,6 +12,8 @@ public:
     virtual void setupScreen();
     virtual void tearDownScreen();
     virtual void ToggleLED();
+    virtual void GuageUp();
+    virtual void GuageDown();
 protected:
 };
 
