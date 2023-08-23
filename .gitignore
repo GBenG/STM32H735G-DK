@@ -57,3 +57,11 @@ dkms.conf
 *.launch
 
 Release/
+
+################################
+# but do NOT ignore these files! 
+# Crucial for TouchGFX Designer
+################################
+!imageconvert.out
+!fontconvert.out
+################################
