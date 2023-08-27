@@ -1,0 +1,2 @@
+D:/GIT/STM32H735G-DK/TouchGFX/TGFX_led_control/TouchGFX/generated/images/src/BitmapDatabase.cpp:35:37:const touchgfx::Bitmap::BitmapData* BitmapDatabase::getInstance()	0	static
+D:/GIT/STM32H735G-DK/TouchGFX/TGFX_led_control/TouchGFX/generated/images/src/BitmapDatabase.cpp:40:10:uint16_t BitmapDatabase::getInstanceSize()	0	static

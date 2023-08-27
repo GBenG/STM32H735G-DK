@@ -1,0 +1,12 @@
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:104:18:virtual void touchgfx::Screen::afterTransition()	0	static
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:144:18:virtual void touchgfx::Screen::handleTickEvent()	0	static
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	0	static
+D:/GIT/STM32H735G-DK/TouchGFX/TGFX_led_control/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:16:6:virtual void Screen1View::tearDownScreen()	0	static
+../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:11:13:Screen1View::~Screen1View()	8	static
+../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:11:13:virtual Screen1View::~Screen1View()	8	static
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/Bitmap.hpp:133:14:touchgfx::BitmapId touchgfx::Bitmap::getId() const	8	static
+D:/GIT/STM32H735G-DK/TouchGFX/TGFX_led_control/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:25:6:virtual void Screen1View::ToggleLED()	16	static
+D:/GIT/STM32H735G-DK/TouchGFX/TGFX_led_control/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:6:1:Screen1View::Screen1View()	8	static
+D:/GIT/STM32H735G-DK/TouchGFX/TGFX_led_control/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:11:6:virtual void Screen1View::setupScreen()	0	static
+D:/GIT/STM32H735G-DK/TouchGFX/TGFX_led_control/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:35:6:virtual void Screen1View::GuageUp()	16	static
+D:/GIT/STM32H735G-DK/TouchGFX/TGFX_led_control/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:44:6:virtual void Screen1View::GuageDown()	16	static
