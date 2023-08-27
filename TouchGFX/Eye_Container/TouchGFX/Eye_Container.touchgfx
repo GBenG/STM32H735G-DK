@@ -1,0 +1,351 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Name": "MainScreen",
+        "CanvasBufferSize": 7200,
+        "Components": [
+          {
+            "Type": "FlexButton",
+            "Name": "ScreenButton",
+            "Width": 480,
+            "Height": 272,
+            "LockPosition": true,
+            "ButtonTrigger": {
+              "Type": "ToggleButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 480,
+                "Height": 272,
+                "LockToFlexButtonSize": true
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "Eye_L",
+            "X": 52,
+            "Y": 30,
+            "Width": 141,
+            "Height": 139,
+            "Components": [
+              {
+                "Type": "Circle",
+                "Name": "circle_BL",
+                "Y": 59,
+                "Width": 80,
+                "Height": 80,
+                "LockPosition": true,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "CenterX": 40.0,
+                "CenterY": 40.0,
+                "Radius": 40.0,
+                "StartAngle": 180.0,
+                "EndAngle": 270.0,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Circle",
+                "Name": "circle_TL",
+                "Width": 80,
+                "Height": 80,
+                "LockPosition": true,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "CenterX": 40.0,
+                "CenterY": 40.0,
+                "Radius": 40.0,
+                "StartAngle": 270.0,
+                "EndAngle": 360.0,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Circle",
+                "Name": "circle_BR",
+                "X": 61,
+                "Y": 59,
+                "Width": 80,
+                "Height": 80,
+                "LockPosition": true,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "CenterX": 40.0,
+                "CenterY": 40.0,
+                "Radius": 40.0,
+                "StartAngle": 90.0,
+                "EndAngle": 180.0,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Circle",
+                "Name": "circle_TR",
+                "X": 61,
+                "Width": 80,
+                "Height": 80,
+                "LockPosition": true,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "CenterX": 40.0,
+                "CenterY": 40.0,
+                "Radius": 40.0,
+                "EndAngle": 90.0,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Box",
+                "Name": "box_mid",
+                "Y": 38,
+                "Width": 141,
+                "Height": 62,
+                "LockPosition": true,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "Box",
+                "Name": "box_top",
+                "X": 40,
+                "Width": 62,
+                "Height": 40,
+                "LockPosition": true,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "Box",
+                "Name": "box_bot",
+                "X": 39,
+                "Y": 99,
+                "Width": 62,
+                "Height": 40,
+                "LockPosition": true,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "Eye_R",
+            "X": 287,
+            "Y": 30,
+            "Width": 141,
+            "Height": 139,
+            "Components": [
+              {
+                "Type": "Circle",
+                "Name": "circle_BL_1",
+                "Y": 59,
+                "Width": 80,
+                "Height": 80,
+                "LockPosition": true,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "CenterX": 40.0,
+                "CenterY": 40.0,
+                "Radius": 40.0,
+                "StartAngle": 180.0,
+                "EndAngle": 270.0,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Circle",
+                "Name": "circle_TL_1",
+                "Width": 80,
+                "Height": 80,
+                "LockPosition": true,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "CenterX": 40.0,
+                "CenterY": 40.0,
+                "Radius": 40.0,
+                "StartAngle": 270.0,
+                "EndAngle": 360.0,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Circle",
+                "Name": "circle_BR_1",
+                "X": 61,
+                "Y": 59,
+                "Width": 80,
+                "Height": 80,
+                "LockPosition": true,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "CenterX": 40.0,
+                "CenterY": 40.0,
+                "Radius": 40.0,
+                "StartAngle": 90.0,
+                "EndAngle": 180.0,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Circle",
+                "Name": "circle_TR_1",
+                "X": 61,
+                "Width": 80,
+                "Height": 80,
+                "LockPosition": true,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "CenterX": 40.0,
+                "CenterY": 40.0,
+                "Radius": 40.0,
+                "EndAngle": 90.0,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Box",
+                "Name": "box_mid_1",
+                "Y": 38,
+                "Width": 141,
+                "Height": 62,
+                "LockPosition": true,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "Box",
+                "Name": "box_top_1",
+                "X": 40,
+                "Width": 62,
+                "Height": 40,
+                "LockPosition": true,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "Box",
+                "Name": "box_bot_1",
+                "X": 39,
+                "Y": 99,
+                "Width": 62,
+                "Height": 40,
+                "LockPosition": true,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              }
+            ]
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "ScreenButtonClicked",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "ScreenButton"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "ScreenButtonClicked"
+            }
+          }
+        ]
+      }
+    ],
+    "CustomContainerDefinitions": [],
+    "Name": "Eye_Container",
+    "Resolution": {
+      "Width": 480,
+      "Height": 272
+    },
+    "SelectedColorDepth": 24,
+    "StartupScreenName": "MainScreen",
+    "SelectedStartupLanguage": "GB",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "UIPath": ".",
+    "AvailableColorDepths": [
+      24
+    ],
+    "AvailableLCDs": {
+      "24": "LCD24bpp"
+    },
+    "AvailableSections": [
+      "ExtFlashSection",
+      "IntFlashSection"
+    ],
+    "AvailableResolutions": [
+      {
+        "Width": 480,
+        "Height": 272
+      }
+    ],
+    "PhysicalButtons": [],
+    "FrameworkFeatures": {
+      "LCD24bpp": {
+        "Id": "LCD24bpp",
+        "IsEnabled": true
+      }
+    },
+    "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j8",
+    "PostGenerateCommand": "touchgfx update_project --project-file=simulator/msvs/Application.vcxproj",
+    "PostGenerateTargetCommand": "touchgfx update_project",
+    "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j8",
+    "RunSimulatorCommand": "build\\bin\\simulator.exe",
+    "CompileTargetCommandOverride": "make -f ../gcc/Makefile -j8",
+    "FlashTargetCommandOverride": "make -f ../gcc/Makefile flash",
+    "LandscapeSkinX": 0,
+    "LandscapeSkinY": 0,
+    "PortraitSkinX": 0,
+    "PortraitSkinY": 0,
+    "DisplayOrientation": "Landscape",
+    "Family": "STM32H7",
+    "SubFamily": "STM32H725/735",
+    "Toolchain": "STM32CubeIDE",
+    "Platform": "m7",
+    "ProjectFile": "../STM32H735G-DK.ioc",
+    "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
+    "OptionalComponents": [],
+    "AdditionalFeatures": [
+      "Vector"
+    ]
+  },
+  "Version": "4.21.1",
+  "CreatedBy": "4.21.1"
+}
