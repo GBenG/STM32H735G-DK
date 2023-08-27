@@ -29,8 +29,8 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
-    touchgfx::BoxWithBorderButtonStyle< touchgfx::TouchButtonTrigger >  Left;
-    touchgfx::BoxWithBorderButtonStyle< touchgfx::TouchButtonTrigger >  Right;
+    touchgfx::BoxWithBorderButtonStyle< touchgfx::TouchButtonTrigger >  ButtonR;
+    touchgfx::BoxWithBorderButtonStyle< touchgfx::TouchButtonTrigger >  ButtonL;
     touchgfx::MoveAnimator< touchgfx::Image > FoxL;
     touchgfx::MoveAnimator< touchgfx::Image > FoxR;
 

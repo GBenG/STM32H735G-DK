@@ -131,58 +131,58 @@
       <UniqueIdentifier>{C07B02B9-A55E-47AA-AD61-59A6AAD754E6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\gui">
-      <UniqueIdentifier>985872C5-095A-7774-B79C-11E27C3B6AD2</UniqueIdentifier>
+      <UniqueIdentifier>9062F601-9B44-B429-2870-22B7BDA96C56</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\gui">
-      <UniqueIdentifier>FEDB2EF0-357D-D441-D0D6-AE67F544D5E4</UniqueIdentifier>
+      <UniqueIdentifier>10B20118-148D-D2DB-33A4-32AF6EAC7E3D</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\gui\model">
-      <UniqueIdentifier>E1E3EAF1-35E1-CF8C-B7C1-50D41C8E6675</UniqueIdentifier>
+      <UniqueIdentifier>7D26252D-1F16-9156-ED8B-5D914DB98597</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\gui\model">
-      <UniqueIdentifier>1FFD3D4A-6853-23D4-910B-AD09C5FCB395</UniqueIdentifier>
+      <UniqueIdentifier>49038644-9609-DE75-283A-814A12CBF96E</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\gui\screen1_screen">
-      <UniqueIdentifier>30F47BC4-65FA-5CE1-5357-33B74E91A54D</UniqueIdentifier>
+      <UniqueIdentifier>968DF896-9DE1-55E4-860E-BDFC0190C934</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\generated\gui_generated">
-      <UniqueIdentifier>D56E44C6-013D-BCC1-73F8-A6C570226340</UniqueIdentifier>
+      <UniqueIdentifier>CBECFCF1-6761-C8F7-5D05-1EE98E866BB2</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\gui\common">
-      <UniqueIdentifier>28E313DA-BE6C-2DCB-A88E-AC2CCBF62ECA</UniqueIdentifier>
+      <UniqueIdentifier>C26EFA02-5B93-3565-0721-1C4C7532169E</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\gui\screen1_screen">
-      <UniqueIdentifier>72E9B599-63BF-62AE-1146-C4BBCF152E59</UniqueIdentifier>
+      <UniqueIdentifier>EF21B152-093C-21B4-2B8D-72FE2FD83156</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\generated\gui_generated">
-      <UniqueIdentifier>827BD9ED-A1E5-B4D5-E498-77A253C10B27</UniqueIdentifier>
+      <UniqueIdentifier>FBC976A4-B970-9215-DAC1-10341751A7D0</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\gui\common">
-      <UniqueIdentifier>FA11A27F-5189-38A9-8308-A6268593288E</UniqueIdentifier>
+      <UniqueIdentifier>DDC6469A-DE91-3090-5B05-E0184260B85C</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\generated\gui_generated\screen1_screen">
-      <UniqueIdentifier>42AA0B36-878C-74DC-0758-FF77F9F5F37B</UniqueIdentifier>
+      <UniqueIdentifier>7913DF5D-9897-D11E-E459-3ECD86FA35D1</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\generated\gui_generated\screen1_screen">
-      <UniqueIdentifier>C2355FAC-5E2E-5E85-0230-EFA8F2E65C57</UniqueIdentifier>
+      <UniqueIdentifier>6DB36732-12CB-7FEE-D4A0-DF2E7AB77894</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\generated\simulator\include">
-      <UniqueIdentifier>1BF1BC4C-B27E-95D8-0EB4-A35DF9B542C9</UniqueIdentifier>
+      <UniqueIdentifier>2237BC18-1C96-73C6-0F40-EE48D5AACD98</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\generated\gui_generated\common">
-      <UniqueIdentifier>33BD43AA-3C18-EE7C-8964-7689181B252C</UniqueIdentifier>
+      <UniqueIdentifier>163751E1-CB2C-82CC-F32A-C29249B429A7</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\generated\gui_generated\common">
-      <UniqueIdentifier>291D59EA-853B-EFC7-EA25-3269A813F1AF</UniqueIdentifier>
+      <UniqueIdentifier>9701C6CF-9EEF-942D-9C5A-939237AA3C49</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\generated\simulator\video">
-      <UniqueIdentifier>87963871-933B-754C-05B5-25333C385307</UniqueIdentifier>
+      <UniqueIdentifier>85628E40-18F8-E9D8-9DC5-131FB4382552</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\generated\simulator\include\simulator">
-      <UniqueIdentifier>9A8023E1-D49D-3458-623E-3CABF067A52D</UniqueIdentifier>
+      <UniqueIdentifier>BBAD63A2-CE35-0BBD-5AEF-092D075E6044</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\generated\simulator\include\simulator\video">
-      <UniqueIdentifier>1DABD11C-2FF5-C146-1137-F3413F1D5AC6</UniqueIdentifier>
+      <UniqueIdentifier>32CA4283-085C-1AB0-2D91-A9FEBB967375</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

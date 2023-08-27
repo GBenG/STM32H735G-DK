@@ -12,25 +12,25 @@ Screen1ViewBase::Screen1ViewBase() :
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
-    Left.setBoxWithBorderPosition(0, 0, 240, 272);
-    Left.setBorderSize(0);
-    Left.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(0, 0, 0));
-    Left.setAction(flexButtonCallback);
-    Left.setPosition(240, 0, 240, 272);
-    add(Left);
+    ButtonR.setBoxWithBorderPosition(0, 0, 240, 272);
+    ButtonR.setBorderSize(0);
+    ButtonR.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(0, 0, 0));
+    ButtonR.setAction(flexButtonCallback);
+    ButtonR.setPosition(0, 0, 240, 272);
+    add(ButtonR);
 
-    Right.setBoxWithBorderPosition(0, 0, 240, 272);
-    Right.setBorderSize(0);
-    Right.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(0, 0, 0));
-    Right.setAction(flexButtonCallback);
-    Right.setPosition(0, 0, 240, 272);
-    add(Right);
+    ButtonL.setBoxWithBorderPosition(0, 0, 240, 272);
+    ButtonL.setBorderSize(0);
+    ButtonL.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(0, 0, 0));
+    ButtonL.setAction(flexButtonCallback);
+    ButtonL.setPosition(240, 0, 240, 272);
+    add(ButtonL);
 
     FoxL.setXY(302, 79);
     FoxL.setBitmap(touchgfx::Bitmap(BITMAP_FOX_SMALL_L_ID));
     add(FoxL);
 
-    FoxR.setXY(275, 79);
+    FoxR.setXY(0, 79);
     FoxR.setBitmap(touchgfx::Bitmap(BITMAP_FOX_SMALL_R_ID));
     FoxR.setVisible(false);
     add(FoxR);
@@ -48,50 +48,50 @@ void Screen1ViewBase::setupScreen()
 
 void Screen1ViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src)
 {
-    if (&src == &Left)
+    if (&src == &ButtonL)
     {
-        //Interaction1
-        //When Left clicked hide FoxR
-        //Hide FoxR
-        FoxR.setVisible(false);
-        FoxR.invalidate();
-        //Interaction3
-        //When Left clicked show FoxL
-        //Show FoxL
-        FoxL.setVisible(true);
-        FoxL.invalidate();
-        //Interaction5
-        //When Left clicked move FoxL
-        //Move FoxL to x:0, y:79 with LinearIn easing in 500 ms (30 Ticks)
-        FoxL.clearMoveAnimationEndedAction();
-        FoxL.startMoveAnimation(0, 79, 30, touchgfx::EasingEquations::linearEaseIn, touchgfx::EasingEquations::linearEaseIn);
-        //Interaction6
-        //When Left clicked move FoxR
-        //Move FoxR to x:0, y:79 with LinearIn easing in 500 ms (30 Ticks)
-        FoxR.clearMoveAnimationEndedAction();
-        FoxR.startMoveAnimation(0, 79, 30, touchgfx::EasingEquations::linearEaseIn, touchgfx::EasingEquations::linearEaseIn);
-    }
-    if (&src == &Right)
-    {
-        //Interaction2
-        //When Right clicked hide FoxL
+        //LHideL
+        //When ButtonL clicked hide FoxL
         //Hide FoxL
         FoxL.setVisible(false);
         FoxL.invalidate();
-        //Interaction4
-        //When Right clicked show FoxR
+        //LShowR
+        //When ButtonL clicked show FoxR
         //Show FoxR
         FoxR.setVisible(true);
         FoxR.invalidate();
-        //Interaction7
-        //When Right clicked move FoxL
-        //Move FoxL to x:302, y:79 with LinearIn easing in 500 ms (30 Ticks)
-        FoxL.clearMoveAnimationEndedAction();
-        FoxL.startMoveAnimation(302, 79, 30, touchgfx::EasingEquations::linearEaseIn, touchgfx::EasingEquations::linearEaseIn);
-        //Interaction8
-        //When Right clicked move FoxR
-        //Move FoxR to x:302, y:79 with LinearIn easing in 500 ms (30 Ticks)
+        //LMoveR
+        //When ButtonL clicked move FoxR
+        //Move FoxR to x:302, y:79 with LinearInOut easing in 500 ms (30 Ticks)
         FoxR.clearMoveAnimationEndedAction();
-        FoxR.startMoveAnimation(302, 79, 30, touchgfx::EasingEquations::linearEaseIn, touchgfx::EasingEquations::linearEaseIn);
+        FoxR.startMoveAnimation(302, 79, 30, touchgfx::EasingEquations::linearEaseInOut, touchgfx::EasingEquations::linearEaseInOut);
+        //LMoveL
+        //When ButtonL clicked move FoxL
+        //Move FoxL to x:302, y:79 with LinearInOut easing in 500 ms (30 Ticks)
+        FoxL.clearMoveAnimationEndedAction();
+        FoxL.startMoveAnimation(302, 79, 30, touchgfx::EasingEquations::linearEaseInOut, touchgfx::EasingEquations::linearEaseInOut);
+    }
+    if (&src == &ButtonR)
+    {
+        //RHideR
+        //When ButtonR clicked hide FoxR
+        //Hide FoxR
+        FoxR.setVisible(false);
+        FoxR.invalidate();
+        //RShowL
+        //When ButtonR clicked show FoxL
+        //Show FoxL
+        FoxL.setVisible(true);
+        FoxL.invalidate();
+        //RMoveR
+        //When ButtonR clicked move FoxR
+        //Move FoxR to x:0, y:79 with LinearIn easing in 500 ms (30 Ticks)
+        FoxR.clearMoveAnimationEndedAction();
+        FoxR.startMoveAnimation(0, 79, 30, touchgfx::EasingEquations::linearEaseIn, touchgfx::EasingEquations::linearEaseIn);
+        //RMoveL
+        //When ButtonR clicked move FoxL
+        //Move FoxL to x:0, y:79 with LinearInOut easing in 500 ms (30 Ticks)
+        FoxL.clearMoveAnimationEndedAction();
+        FoxL.startMoveAnimation(0, 79, 30, touchgfx::EasingEquations::linearEaseInOut, touchgfx::EasingEquations::linearEaseInOut);
     }
 }

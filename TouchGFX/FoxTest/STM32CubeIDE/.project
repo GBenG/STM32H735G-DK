@@ -429,16 +429,6 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/SVGDatabase.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/image_fox-L.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_fox-L.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_fox-R.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_fox-R.cpp</locationURI>
-		</link>
-		<link>
 			<name>Application/User/generated/image_fox-small-L.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_fox-small-L.cpp</locationURI>

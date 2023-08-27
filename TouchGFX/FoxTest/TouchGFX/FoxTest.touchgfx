@@ -6,8 +6,7 @@
         "Components": [
           {
             "Type": "FlexButton",
-            "Name": "Left",
-            "X": 240,
+            "Name": "ButtonR",
             "Width": 240,
             "Height": 272,
             "ButtonTrigger": {
@@ -24,7 +23,8 @@
           },
           {
             "Type": "FlexButton",
-            "Name": "Right",
+            "Name": "ButtonL",
+            "X": 240,
             "Width": 240,
             "Height": 272,
             "ButtonTrigger": {
@@ -51,7 +51,6 @@
           {
             "Type": "Image",
             "Name": "FoxR",
-            "X": 275,
             "Y": 79,
             "Width": 178,
             "Height": 193,
@@ -61,21 +60,10 @@
         ],
         "Interactions": [
           {
-            "InteractionName": "Interaction1",
+            "InteractionName": "LHideL",
             "Trigger": {
               "Type": "TriggerClicked",
-              "TriggerComponent": "Left"
-            },
-            "Action": {
-              "Type": "ActionHide",
-              "ActionComponent": "FoxR"
-            }
-          },
-          {
-            "InteractionName": "Interaction2",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "Right"
+              "TriggerComponent": "ButtonL"
             },
             "Action": {
               "Type": "ActionHide",
@@ -83,21 +71,10 @@
             }
           },
           {
-            "InteractionName": "Interaction3",
+            "InteractionName": "LShowR",
             "Trigger": {
               "Type": "TriggerClicked",
-              "TriggerComponent": "Left"
-            },
-            "Action": {
-              "Type": "ActionShow",
-              "ActionComponent": "FoxL"
-            }
-          },
-          {
-            "InteractionName": "Interaction4",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "Right"
+              "TriggerComponent": "ButtonL"
             },
             "Action": {
               "Type": "ActionShow",
@@ -105,25 +82,64 @@
             }
           },
           {
-            "InteractionName": "Interaction5",
+            "InteractionName": "LMoveR",
             "Trigger": {
               "Type": "TriggerClicked",
-              "TriggerComponent": "Left"
+              "TriggerComponent": "ButtonL"
             },
             "Action": {
               "Type": "ActionMove",
+              "X": 302,
               "Y": 79,
               "Easing": "Linear",
-              "EasingOption": "In",
+              "EasingOption": "InOut",
+              "Duration": 500,
+              "ActionComponent": "FoxR"
+            }
+          },
+          {
+            "InteractionName": "LMoveL",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "ButtonL"
+            },
+            "Action": {
+              "Type": "ActionMove",
+              "X": 302,
+              "Y": 79,
+              "Easing": "Linear",
+              "EasingOption": "InOut",
               "Duration": 500,
               "ActionComponent": "FoxL"
             }
           },
           {
-            "InteractionName": "Interaction6",
+            "InteractionName": "RHideR",
             "Trigger": {
               "Type": "TriggerClicked",
-              "TriggerComponent": "Left"
+              "TriggerComponent": "ButtonR"
+            },
+            "Action": {
+              "Type": "ActionHide",
+              "ActionComponent": "FoxR"
+            }
+          },
+          {
+            "InteractionName": "RShowL",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "ButtonR"
+            },
+            "Action": {
+              "Type": "ActionShow",
+              "ActionComponent": "FoxL"
+            }
+          },
+          {
+            "InteractionName": "RMoveR",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "ButtonR"
             },
             "Action": {
               "Type": "ActionMove",
@@ -135,35 +151,18 @@
             }
           },
           {
-            "InteractionName": "Interaction7",
+            "InteractionName": "RMoveL",
             "Trigger": {
               "Type": "TriggerClicked",
-              "TriggerComponent": "Right"
+              "TriggerComponent": "ButtonR"
             },
             "Action": {
               "Type": "ActionMove",
-              "X": 302,
               "Y": 79,
               "Easing": "Linear",
-              "EasingOption": "In",
+              "EasingOption": "InOut",
               "Duration": 500,
               "ActionComponent": "FoxL"
-            }
-          },
-          {
-            "InteractionName": "Interaction8",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "Right"
-            },
-            "Action": {
-              "Type": "ActionMove",
-              "X": 302,
-              "Y": 79,
-              "Easing": "Linear",
-              "EasingOption": "In",
-              "Duration": 500,
-              "ActionComponent": "FoxR"
             }
           }
         ]
