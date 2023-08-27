@@ -19,11 +19,16 @@ public:
     MainScreenViewBase();
     virtual ~MainScreenViewBase();
     virtual void setupScreen();
+    virtual void handleTickEvent();
 
     /*
      * Virtual Action Handlers
      */
     virtual void ScreenButtonClicked()
+    {
+        // Override and implement this function in MainScreen
+    }
+    virtual void ScreenTick()
     {
         // Override and implement this function in MainScreen
     }
@@ -37,7 +42,7 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
-    touchgfx::BoxWithBorderButtonStyle< touchgfx::ToggleButtonTrigger >  ScreenButton;
+    touchgfx::BoxWithBorderButtonStyle< touchgfx::RepeatButtonTrigger >  ScreenButton;
     touchgfx::Container Eye_L;
     touchgfx::Circle circle_BL;
     touchgfx::PainterRGB888 circle_BLPainter;

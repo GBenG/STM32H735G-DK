@@ -14,6 +14,8 @@ MainScreenViewBase::MainScreenViewBase() :
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
+    ScreenButton.setDelay(1);
+    ScreenButton.setInterval(1);
     ScreenButton.setBoxWithBorderPosition(0, 0, 480, 272);
     ScreenButton.setBorderSize(0);
     ScreenButton.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -22,6 +24,7 @@ MainScreenViewBase::MainScreenViewBase() :
     add(ScreenButton);
 
     Eye_L.setPosition(52, 30, 141, 139);
+    Eye_L.setVisible(false);
     circle_BL.setPosition(0, 59, 80, 80);
     circle_BL.setCenter(40, 40);
     circle_BL.setRadius(40);
@@ -143,4 +146,12 @@ void MainScreenViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButto
         //Call ScreenButtonClicked
         ScreenButtonClicked();
     }
+}
+
+void MainScreenViewBase::handleTickEvent()
+{
+    //ScreenTick
+    //When every N tick call virtual function
+    //Call ScreenTick
+    ScreenTick();
 }

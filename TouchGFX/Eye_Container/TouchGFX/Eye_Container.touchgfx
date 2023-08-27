@@ -10,9 +10,10 @@
             "Name": "ScreenButton",
             "Width": 480,
             "Height": 272,
-            "LockPosition": true,
             "ButtonTrigger": {
-              "Type": "ToggleButtonTrigger"
+              "Type": "RepeatButtonTrigger",
+              "Delay": 1,
+              "Interval": 1
             },
             "ButtonStyles": [
               {
@@ -30,6 +31,7 @@
             "Y": 30,
             "Width": 141,
             "Height": 139,
+            "Visible": false,
             "Components": [
               {
                 "Type": "Circle",
@@ -284,6 +286,17 @@
             "Action": {
               "Type": "ActionCustom",
               "FunctionName": "ScreenButtonClicked"
+            }
+          },
+          {
+            "InteractionName": "ScreenTick",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 1
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "ScreenTick"
             }
           }
         ]
