@@ -1,7 +1,6 @@
-TouchGFX/build/STM32H735G-DK/TouchGFX/gui/src/screen1_screen/Screen1View.o: \
- TouchGFX/gui/src/screen1_screen/Screen1View.cpp \
- TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp \
- TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp \
+TouchGFX/build/STM32H735G-DK/TouchGFX/generated/gui_generated/src/mainscreen_screen/MainScreenViewBase.o: \
+ TouchGFX/generated/gui_generated/src/mainscreen_screen/MainScreenViewBase.cpp \
+ TouchGFX/generated/gui_generated/include/gui_generated/mainscreen_screen/MainScreenViewBase.hpp \
  TouchGFX/gui/include/gui/common/FrontendApplication.hpp \
  TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp \
  Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp \
@@ -40,7 +39,7 @@ TouchGFX/build/STM32H735G-DK/TouchGFX/gui/src/screen1_screen/Screen1View.o: \
  Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp \
  TouchGFX/gui/include/gui/model/Model.hpp \
  Middlewares/ST/touchgfx/framework/include/mvp/View.hpp \
- TouchGFX/gui/include/gui/screen1_screen/Screen1Presenter.hpp \
+ TouchGFX/gui/include/gui/mainscreen_screen/MainScreenPresenter.hpp \
  TouchGFX/gui/include/gui/model/ModelListener.hpp \
  Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp \
  Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/Buttons.hpp \
@@ -78,11 +77,11 @@ TouchGFX/build/STM32H735G-DK/TouchGFX/gui/src/screen1_screen/Screen1View.o: \
  Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/PainterRGB888.hpp \
  Middlewares/ST/touchgfx/framework/include/touchgfx/Color.hpp \
  Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterColor.hpp \
- Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterRGB888.hpp
+ Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterRGB888.hpp \
+ Middlewares/ST/touchgfx/framework/include/touchgfx/canvas_widget_renderer/CanvasWidgetRenderer.hpp \
+ TouchGFX/generated/images/include/images/BitmapDatabase.hpp
 
-TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:
-
-TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:
+TouchGFX/generated/gui_generated/include/gui_generated/mainscreen_screen/MainScreenViewBase.hpp:
 
 TouchGFX/gui/include/gui/common/FrontendApplication.hpp:
 
@@ -160,7 +159,7 @@ TouchGFX/gui/include/gui/model/Model.hpp:
 
 Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:
 
-TouchGFX/gui/include/gui/screen1_screen/Screen1Presenter.hpp:
+TouchGFX/gui/include/gui/mainscreen_screen/MainScreenPresenter.hpp:
 
 TouchGFX/gui/include/gui/model/ModelListener.hpp:
 
@@ -237,3 +236,7 @@ Middlewares/ST/touchgfx/framework/include/touchgfx/Color.hpp:
 Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterColor.hpp:
 
 Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterRGB888.hpp:
+
+Middlewares/ST/touchgfx/framework/include/touchgfx/canvas_widget_renderer/CanvasWidgetRenderer.hpp:
+
+TouchGFX/generated/images/include/images/BitmapDatabase.hpp:

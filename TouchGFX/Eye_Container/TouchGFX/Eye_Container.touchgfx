@@ -164,6 +164,7 @@
                 "Y": 59,
                 "Width": 80,
                 "Height": 80,
+                "Visible": false,
                 "LockPosition": true,
                 "Color": {
                   "Red": 255,
@@ -182,6 +183,7 @@
                 "Name": "circle_TL_1",
                 "Width": 80,
                 "Height": 80,
+                "Visible": false,
                 "LockPosition": true,
                 "Color": {
                   "Red": 255,
@@ -202,6 +204,7 @@
                 "Y": 59,
                 "Width": 80,
                 "Height": 80,
+                "Visible": false,
                 "LockPosition": true,
                 "Color": {
                   "Red": 255,
@@ -221,6 +224,7 @@
                 "X": 61,
                 "Width": 80,
                 "Height": 80,
+                "Visible": false,
                 "LockPosition": true,
                 "Color": {
                   "Red": 255,
@@ -239,6 +243,7 @@
                 "Y": 38,
                 "Width": 141,
                 "Height": 62,
+                "Visible": false,
                 "LockPosition": true,
                 "Color": {
                   "Red": 255,
@@ -252,6 +257,7 @@
                 "X": 40,
                 "Width": 62,
                 "Height": 40,
+                "Visible": false,
                 "LockPosition": true,
                 "Color": {
                   "Red": 255,
@@ -266,12 +272,20 @@
                 "Y": 99,
                 "Width": 62,
                 "Height": 40,
+                "Visible": false,
                 "LockPosition": true,
                 "Color": {
                   "Red": 255,
                   "Green": 255,
                   "Blue": 255
                 }
+              },
+              {
+                "Type": "Image",
+                "Name": "image1",
+                "Width": 139,
+                "Height": 139,
+                "RelativeFilename": "unnamed.png"
               }
             ]
           }

@@ -44,10 +44,10 @@ TouchGFX/build/STM32H735G-DK/TouchGFX/target/generated/TouchGFXGeneratedHAL.o: \
  Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp \
  Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp \
  TouchGFX/gui/include/gui/model/Model.hpp \
- TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp \
- TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp \
+ TouchGFX/gui/include/gui/mainscreen_screen/MainScreenView.hpp \
+ TouchGFX/generated/gui_generated/include/gui_generated/mainscreen_screen/MainScreenViewBase.hpp \
  Middlewares/ST/touchgfx/framework/include/mvp/View.hpp \
- TouchGFX/gui/include/gui/screen1_screen/Screen1Presenter.hpp \
+ TouchGFX/gui/include/gui/mainscreen_screen/MainScreenPresenter.hpp \
  TouchGFX/gui/include/gui/model/ModelListener.hpp \
  Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp \
  Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/Buttons.hpp \
@@ -221,13 +221,13 @@ Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:
 
 TouchGFX/gui/include/gui/model/Model.hpp:
 
-TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:
+TouchGFX/gui/include/gui/mainscreen_screen/MainScreenView.hpp:
 
-TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:
+TouchGFX/generated/gui_generated/include/gui_generated/mainscreen_screen/MainScreenViewBase.hpp:
 
 Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:
 
-TouchGFX/gui/include/gui/screen1_screen/Screen1Presenter.hpp:
+TouchGFX/gui/include/gui/mainscreen_screen/MainScreenPresenter.hpp:
 
 TouchGFX/gui/include/gui/model/ModelListener.hpp:
 

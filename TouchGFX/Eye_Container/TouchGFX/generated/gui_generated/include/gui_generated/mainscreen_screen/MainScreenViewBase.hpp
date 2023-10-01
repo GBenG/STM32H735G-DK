@@ -12,6 +12,7 @@
 #include <touchgfx/containers/Container.hpp>
 #include <touchgfx/widgets/canvas/Circle.hpp>
 #include <touchgfx/widgets/canvas/PainterRGB888.hpp>
+#include <touchgfx/widgets/Image.hpp>
 
 class MainScreenViewBase : public touchgfx::View<MainScreenPresenter>
 {
@@ -67,6 +68,7 @@ protected:
     touchgfx::Box box_mid_1;
     touchgfx::Box box_top_1;
     touchgfx::Box box_bot_1;
+    touchgfx::Image image1;
 
 private:
 

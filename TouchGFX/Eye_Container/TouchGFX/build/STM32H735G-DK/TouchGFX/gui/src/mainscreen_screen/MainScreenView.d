@@ -1,7 +1,7 @@
-TouchGFX/build/STM32H735G-DK/TouchGFX/gui/src/screen1_screen/Screen1Presenter.o: \
- TouchGFX/gui/src/screen1_screen/Screen1Presenter.cpp \
- TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp \
- TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp \
+TouchGFX/build/STM32H735G-DK/TouchGFX/gui/src/mainscreen_screen/MainScreenView.o: \
+ TouchGFX/gui/src/mainscreen_screen/MainScreenView.cpp \
+ TouchGFX/gui/include/gui/mainscreen_screen/MainScreenView.hpp \
+ TouchGFX/generated/gui_generated/include/gui_generated/mainscreen_screen/MainScreenViewBase.hpp \
  TouchGFX/gui/include/gui/common/FrontendApplication.hpp \
  TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp \
  Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp \
@@ -40,7 +40,7 @@ TouchGFX/build/STM32H735G-DK/TouchGFX/gui/src/screen1_screen/Screen1Presenter.o:
  Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp \
  TouchGFX/gui/include/gui/model/Model.hpp \
  Middlewares/ST/touchgfx/framework/include/mvp/View.hpp \
- TouchGFX/gui/include/gui/screen1_screen/Screen1Presenter.hpp \
+ TouchGFX/gui/include/gui/mainscreen_screen/MainScreenPresenter.hpp \
  TouchGFX/gui/include/gui/model/ModelListener.hpp \
  Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp \
  Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/Buttons.hpp \
@@ -78,11 +78,12 @@ TouchGFX/build/STM32H735G-DK/TouchGFX/gui/src/screen1_screen/Screen1Presenter.o:
  Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/PainterRGB888.hpp \
  Middlewares/ST/touchgfx/framework/include/touchgfx/Color.hpp \
  Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterColor.hpp \
- Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterRGB888.hpp
+ Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterRGB888.hpp \
+ Middlewares/ST/touchgfx/framework/include/touchgfx/hal/OSWrappers.hpp
 
-TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:
+TouchGFX/gui/include/gui/mainscreen_screen/MainScreenView.hpp:
 
-TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:
+TouchGFX/generated/gui_generated/include/gui_generated/mainscreen_screen/MainScreenViewBase.hpp:
 
 TouchGFX/gui/include/gui/common/FrontendApplication.hpp:
 
@@ -160,7 +161,7 @@ TouchGFX/gui/include/gui/model/Model.hpp:
 
 Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:
 
-TouchGFX/gui/include/gui/screen1_screen/Screen1Presenter.hpp:
+TouchGFX/gui/include/gui/mainscreen_screen/MainScreenPresenter.hpp:
 
 TouchGFX/gui/include/gui/model/ModelListener.hpp:
 
@@ -237,3 +238,5 @@ Middlewares/ST/touchgfx/framework/include/touchgfx/Color.hpp:
 Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterColor.hpp:
 
 Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterRGB888.hpp:
+
+Middlewares/ST/touchgfx/framework/include/touchgfx/hal/OSWrappers.hpp:

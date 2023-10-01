@@ -4,6 +4,7 @@
 #include <gui_generated/mainscreen_screen/MainScreenViewBase.hpp>
 #include <touchgfx/canvas_widget_renderer/CanvasWidgetRenderer.hpp>
 #include <touchgfx/Color.hpp>
+#include <images/BitmapDatabase.hpp>
 
 MainScreenViewBase::MainScreenViewBase() :
     flexButtonCallback(this, &MainScreenViewBase::flexButtonCallbackHandler)
@@ -83,6 +84,7 @@ MainScreenViewBase::MainScreenViewBase() :
     circle_BL_1.setArc(180, 270);
     circle_BL_1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     circle_BL_1.setPainter(circle_BL_1Painter);
+    circle_BL_1.setVisible(false);
     Eye_R.add(circle_BL_1);
 
     circle_TL_1.setPosition(0, 0, 80, 80);
@@ -92,6 +94,7 @@ MainScreenViewBase::MainScreenViewBase() :
     circle_TL_1.setArc(270, 360);
     circle_TL_1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     circle_TL_1.setPainter(circle_TL_1Painter);
+    circle_TL_1.setVisible(false);
     Eye_R.add(circle_TL_1);
 
     circle_BR_1.setPosition(61, 59, 80, 80);
@@ -101,6 +104,7 @@ MainScreenViewBase::MainScreenViewBase() :
     circle_BR_1.setArc(90, 180);
     circle_BR_1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     circle_BR_1.setPainter(circle_BR_1Painter);
+    circle_BR_1.setVisible(false);
     Eye_R.add(circle_BR_1);
 
     circle_TR_1.setPosition(61, 0, 80, 80);
@@ -110,19 +114,27 @@ MainScreenViewBase::MainScreenViewBase() :
     circle_TR_1.setArc(0, 90);
     circle_TR_1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     circle_TR_1.setPainter(circle_TR_1Painter);
+    circle_TR_1.setVisible(false);
     Eye_R.add(circle_TR_1);
 
     box_mid_1.setPosition(0, 38, 141, 62);
     box_mid_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    box_mid_1.setVisible(false);
     Eye_R.add(box_mid_1);
 
     box_top_1.setPosition(40, 0, 62, 40);
     box_top_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    box_top_1.setVisible(false);
     Eye_R.add(box_top_1);
 
     box_bot_1.setPosition(39, 99, 62, 40);
     box_bot_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    box_bot_1.setVisible(false);
     Eye_R.add(box_bot_1);
+
+    image1.setXY(0, 0);
+    image1.setBitmap(touchgfx::Bitmap(BITMAP_UNNAMED_ID));
+    Eye_R.add(image1);
 
     add(Eye_R);
 }
